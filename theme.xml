@@ -1,0 +1,1564 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.3.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta charset='UTF-8'/>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0' name='viewport'/>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+  <meta content='#2563EB' name='theme-color'/>
+  <meta content='blogger' name='generator'/>
+
+  <b:if cond='data:blog.pageType == &quot;index&quot;'>
+    <title><data:blog.title/></title>
+    <b:else/>
+    <title><data:blog.pageName/> &#8211; <data:blog.title/></title>
+  </b:if>
+
+  <b:if cond='data:blog.metaDescription'>
+    <meta expr:content='data:blog.metaDescription' name='description'/>
+  </b:if>
+
+  <link expr:content='data:blog.canonicalUrl' rel='canonical'/>
+  <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin='crossorigin'/>
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap' media='print' onload='this.media=&quot;all&quot;' rel='stylesheet'/>
+  <noscript><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap' rel='stylesheet'/></noscript>
+
+  <meta content='InvoicePro' expr:content='data:blog.title' property='og:site_name'/>
+  <meta content='website' property='og:type'/>
+  <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+  <meta expr:content='data:blog.pageType == &quot;index&quot; ? data:blog.title : data:blog.pageName' property='og:title'/>
+  <meta expr:content='data:blog.metaDescription ? data:blog.metaDescription : data:blog.title' property='og:description'/>
+  <meta content='summary_large_image' name='twitter:card'/>
+  <meta expr:content='data:blog.pageType == &quot;index&quot; ? data:blog.title : data:blog.pageName' name='twitter:title'/>
+
+  <link expr:href='data:blog.homepageUrl + &quot;manifest.json&quot;' rel='manifest'/>
+
+  <b:include data='blog' name='all-head-content'/>
+
+  <!-- JSON-LD: Organization -->
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "InvoicePro",
+    "url": "<data:blog.homepageUrl/>",
+    "logo": "<data:blog.homepageUrl/>favicon.ico",
+    "description": "Professional Invoice &amp; Receipt Generator. Create, print and download invoices and receipts online free.",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite + SearchAction -->
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "<data:blog.title/>",
+    "url": "<data:blog.homepageUrl/>",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "<data:blog.homepageUrl/>search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <b:skin><![CDATA[
+    /* ===== Theme Designer Variables ===== */
+    /*
+    <Group description="Brand Colors" selector="body">
+      <Variable name="primary.color" description="Primary Color" type="color" default="#2563EB" value="#2563EB"/>
+      <Variable name="secondary.color" description="Secondary Color" type="color" default="#1E293B" value="#1E293B"/>
+      <Variable name="accent.color" description="Accent Color" type="color" default="#06B6D4" value="#06B6D4"/>
+      <Variable name="body.bg" description="Body Background" type="color" default="#F8FAFC" value="#F8FAFC"/>
+    </Group>
+    <Group description="Typography" selector="body">
+      <Variable name="body.font" description="Body Font" type="font" default="normal normal 15px Inter, sans-serif" value="normal normal 15px Inter, sans-serif"/>
+      <Variable name="heading.font" description="Heading Font" type="font" default="normal bold 700 28px &#39;Plus Jakarta Sans&#39;, sans-serif" value="normal bold 700 28px &#39;Plus Jakarta Sans&#39;, sans-serif"/>
+    </Group>
+    */
+
+    :root{
+      --primary:#2563EB;
+      --primary-d:#1D4ED8;
+      --secondary:#1E293B;
+      --accent:#06B6D4;
+      --bg:#F8FAFC;
+      --card:#FFFFFF;
+      --text:#0F172A;
+      --muted:#64748B;
+      --border:#E2E8F0;
+      --glass:rgba(255,255,255,.7);
+      --shadow:0 10px 30px rgba(15,23,42,.08);
+      --shadow-lg:0 20px 60px rgba(37,99,235,.15);
+      --radius:16px;
+      --radius-sm:10px;
+      --maxw:1240px;
+      --grad:linear-gradient(135deg,#2563EB 0%,#06B6D4 100%);
+    }
+    [data-theme="dark"]{
+      --bg:#0B1220;
+      --card:#111A2E;
+      --text:#E2E8F0;
+      --muted:#94A3B8;
+      --border:#1E293B;
+      --glass:rgba(17,26,46,.7);
+      --shadow:0 10px 30px rgba(0,0,0,.4);
+      --shadow-lg:0 20px 60px rgba(0,0,0,.5);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{
+      font-family:Inter,'Segoe UI',system-ui,-apple-system,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+      font-size:15px;
+      overflow-x:hidden;
+      transition:background .3s ease,color .3s ease;
+    }
+    h1,h2,h3,h4,h5{font-family:'Plus Jakarta Sans',Inter,sans-serif;font-weight:800;line-height:1.2;letter-spacing:-.02em}
+    a{color:var(--primary);text-decoration:none;transition:.2s}
+    a:hover{color:var(--accent)}
+    img{max-width:100%;height:auto;display:block}
+    ul,ol{padding-left:1.2rem}
+
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:13px 26px;border-radius:var(--radius-sm);border:none;cursor:pointer;transition:transform .15s,box-shadow .2s;font-family:inherit;white-space:nowrap}
+    .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 20px rgba(37,99,235,.35)}
+    .btn-primary:hover{color:#fff;transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,99,235,.45)}
+    .btn-ghost{background:var(--card);color:var(--text);border:1px solid var(--border)}
+    .btn-ghost:hover{color:var(--primary);border-color:var(--primary)}
+    .btn-block{width:100%;justify-content:center}
+
+    /* Glass card */
+    .glass{background:var(--glass);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border:1px solid rgba(255,255,255,.4);border-radius:var(--radius);box-shadow:var(--shadow)}
+    [data-theme="dark"] .glass{border-color:rgba(255,255,255,.08)}
+
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    /* ===== HEADER ===== */
+    .site-header{position:sticky;top:0;z-index:900;background:var(--glass);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:var(--maxw);margin:0 auto;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:var(--secondary)}
+    .brand:hover{color:var(--secondary)}
+    [data-theme="dark"] .brand{color:#fff}
+    [data-theme="dark"] .brand:hover{color:#fff}
+    .brand .logo{width:38px;height:38px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:#fff;font-size:18px;box-shadow:0 6px 16px rgba(37,99,235,.4)}
+    .brand span{color:var(--primary)}
+    [data-theme="dark"] .brand span{color:#60A5FA}
+    .nav-menu{display:flex;align-items:center;gap:6px;list-style:none;padding:0;margin:0}
+    .nav-menu a{display:inline-block;padding:9px 14px;border-radius:10px;color:var(--text);font-weight:500;font-size:15px}
+    .nav-menu a:hover{background:rgba(37,99,235,.08);color:var(--primary)}
+    .nav-actions{display:flex;align-items:center;gap:8px}
+    .theme-toggle,.menu-toggle{background:transparent;border:1px solid var(--border);width:42px;height:42px;border-radius:11px;cursor:pointer;display:grid;place-items:center;color:var(--text);font-size:18px}
+    .theme-toggle:hover,.menu-toggle:hover{border-color:var(--primary);color:var(--primary)}
+    .menu-toggle{display:none}
+    body.nav-open{overflow:hidden}
+    body.nav-open .nav-mobile{transform:translateX(0)}
+    .nav-mobile{position:fixed;inset:64px 0 0 0;background:var(--bg);z-index:950;transform:translateX(100%);transition:transform .3s ease;padding:30px;display:flex;flex-direction:column;gap:6px}
+    .nav-mobile a{padding:16px;font-size:18px;font-weight:600;border-bottom:1px solid var(--border);color:var(--text)}
+    .nav-mobile a:hover{color:var(--primary)}
+    .nav-mobile .btn{margin-top:16px}
+
+    /* ===== HERO ===== */
+    .hero{position:relative;padding:80px 0 70px;overflow:hidden}
+    .hero::before{content:"";position:absolute;top:-150px;right:-150px;width:520px;height:520px;background:radial-gradient(circle,rgba(37,99,235,.18),transparent 70%);border-radius:50%;z-index:-1}
+    .hero::after{content:"";position:absolute;bottom:-200px;left:-100px;width:460px;height:460px;background:radial-gradient(circle,rgba(6,182,212,.15),transparent 70%);border-radius:50%;z-index:-1}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.08);color:var(--primary);padding:7px 14px;border-radius:30px;font-weight:600;font-size:13px;margin-bottom:22px}
+    .hero h1{font-size:clamp(34px,5vw,56px);line-height:1.08;margin-bottom:20px}
+    .hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p.lead{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:30px}
+    .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+    .hero-stats{display:flex;gap:34px;flex-wrap:wrap}
+    .hero-stats .stat b{display:block;font-size:28px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--primary)}
+    .hero-stats .stat span{color:var(--muted);font-size:13px}
+
+    .hero-card{background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow-lg);padding:26px;position:relative}
+    .hero-card .mini-invoice{background:linear-gradient(135deg,#F8FAFC,#EFF6FF);border:1px solid var(--border);border-radius:14px;padding:20px}
+    [data-theme="dark"] .hero-card .mini-invoice{background:linear-gradient(135deg,#0B1220,#111A2E)}
+    .hero-card .mi-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
+    .hero-card .mi-title{font-weight:800;font-size:18px}
+    .hero-card .mi-badge{background:var(--grad);color:#fff;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600}
+    .hero-card .mi-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--border);font-size:14px}
+    .hero-card .mi-row.total{border-bottom:none;font-weight:700;font-size:17px;padding-top:14px}
+    .hero-card .mi-row.total .amt{color:var(--primary)}
+    .hero-card .mi-bar{height:6px;background:var(--border);border-radius:6px;margin-top:8px;overflow:hidden}
+    .hero-card .mi-bar i{display:block;height:100%;width:78%;background:var(--grad)}
+
+    /* ===== SECTIONS ===== */
+    .section{padding:70px 0}
+    .section-head{text-align:center;max-width:680px;margin:0 auto 50px}
+    .section-head .eyebrow{color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:13px}
+    .section-head h2{font-size:clamp(28px,4vw,40px);margin:12px 0}
+    .section-head p{color:var(--muted);font-size:17px}
+
+    .grid{display:grid;gap:24px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+
+    .feature{padding:30px;border-radius:var(--radius);background:var(--card);border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+    .feature:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--primary)}
+    .feature .ico{width:56px;height:56px;border-radius:14px;background:rgba(37,99,235,.1);color:var(--primary);display:grid;place-items:center;font-size:24px;margin-bottom:18px}
+    .feature h3{font-size:19px;margin-bottom:10px}
+    .feature p{color:var(--muted);font-size:15px}
+
+    .tool{display:flex;gap:20px;padding:26px;border-radius:var(--radius);background:var(--card);border:1px solid var(--border);align-items:center;transition:.2s}
+    .tool:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .tool .tico{width:62px;height:62px;border-radius:14px;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:28px;flex-shrink:0}
+    .tool h3{font-size:18px;margin-bottom:4px}
+    .tool p{color:var(--muted);font-size:14px;margin-bottom:10px}
+    .tool a.arrow{font-weight:600;font-size:14px}
+
+    /* Steps */
+    .steps{counter-reset:step}
+    .step{display:flex;gap:22px;padding:24px 0;border-bottom:1px solid var(--border);position:relative}
+    .step:last-child{border-bottom:none}
+    .step .n{width:52px;height:52px;border-radius:14px;background:var(--card);border:2px solid var(--primary);color:var(--primary);display:grid;place-items:center;font-weight:800;font-size:20px;font-family:'Plus Jakarta Sans';flex-shrink:0}
+    .step h3{font-size:18px;margin-bottom:6px}
+    .step p{color:var(--muted)}
+
+    /* FAQ */
+    .faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:14px;overflow:hidden}
+    .faq-q{width:100%;text-align:left;background:none;border:none;padding:20px 24px;font-size:17px;font-weight:700;font-family:inherit;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq-q .pm{font-size:24px;color:var(--primary);transition:transform .2s}
+    .faq-item.open .pm{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted)}
+    .faq-a div{padding:0 24px 22px}
+
+    /* CTA */
+    .cta{position:relative;background:var(--grad);border-radius:26px;padding:60px 40px;text-align:center;color:#fff;overflow:hidden}
+    .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,255,255,.2),transparent 40%)}
+    .cta h2{font-size:clamp(28px,4vw,40px);margin-bottom:14px;color:#fff;position:relative}
+    .cta p{font-size:18px;opacity:.92;max-width:600px;margin:0 auto 30px;position:relative}
+    .cta .btn{background:#fff;color:var(--primary);position:relative}
+    .cta .btn:hover{transform:translateY(-2px);color:var(--primary-d)}
+
+    /* ===== TOOL PAGES ===== */
+    .tool-page{padding:50px 0 80px}
+    .tool-layout{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+    .tool-form{padding:28px}
+    .tool-form h2{font-size:24px;margin-bottom:6px}
+    .tool-form .sub{color:var(--muted);font-size:14px;margin-bottom:24px}
+    .field{margin-bottom:16px}
+    .field label{display:block;font-weight:600;font-size:13px;margin-bottom:6px;color:var(--text)}
+    .field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);font-family:inherit;font-size:15px;transition:.15s}
+    [data-theme="dark"] .field input,[data-theme="dark"] .field select,[data-theme="dark"] .field textarea{background:#0B1220}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .items-table{width:100%;border-collapse:collapse;margin:10px 0 16px}
+    .items-table th{text-align:left;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:8px 6px;font-weight:700}
+    .items-table td{padding:6px}
+    .items-table input{width:100%;padding:9px 10px;border:1.5px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px;font-family:inherit}
+    [data-theme="dark"] .items-table input{background:#0B1220}
+    .items-table input:focus{outline:none;border-color:var(--primary)}
+    .items-table .col-qty,.items-table .col-price{max-width:90px}
+    .items-table .del-row{width:34px;background:transparent;border:none;color:#EF4444;cursor:pointer;font-size:18px;border-radius:8px}
+    .add-item{background:rgba(37,99,235,.08);color:var(--primary);border:1.5px dashed var(--primary);padding:11px;border-radius:10px;width:100%;cursor:pointer;font-weight:600;font-size:14px;margin-bottom:18px;font-family:inherit}
+    .totals{background:rgba(37,99,235,.04);border-radius:12px;padding:18px;margin-top:6px}
+    .totals .trow{display:flex;justify-content:space-between;padding:7px 0;font-size:15px}
+    .totals .trow.grand{border-top:2px solid var(--border);margin-top:6px;padding-top:13px;font-size:19px;font-weight:800;font-family:'Plus Jakarta Sans'}
+    .totals .trow.grand .amt{color:var(--primary)}
+    .tool-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .tool-actions .btn{flex:1;min-width:140px;justify-content:center}
+    .note{font-size:12.5px;color:var(--muted);margin-top:14px;display:flex;gap:8px;align-items:flex-start;background:rgba(6,182,212,.08);padding:11px 13px;border-radius:10px;border-left:3px solid var(--accent)}
+
+    /* Preview / Document */
+    .preview-wrap{position:sticky;top:84px}
+    .preview-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px}
+    .preview-toolbar .ttl{font-weight:700;font-size:16px}
+    .doc{background:#fff;color:#1E293B;border-radius:14px;padding:42px;box-shadow:var(--shadow-lg);min-height:520px;font-family:Inter,sans-serif}
+    .doc .doc-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #2563EB;padding-bottom:22px;margin-bottom:26px}
+    .doc .doc-brand{font-family:'Plus Jakarta Sans';font-weight:800;font-size:26px;color:#1E293B}
+    .doc .doc-brand span{color:#2563EB}
+    .doc .doc-type{font-size:32px;font-weight:800;font-family:'Plus Jakarta Sans';color:#2563EB;letter-spacing:-.02em}
+    .doc .doc-meta{text-align:right;color:#64748B;font-size:13px;line-height:1.7}
+    .doc .doc-meta b{color:#1E293B}
+    .doc .parties{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+    .doc .party .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#94A3B8;font-weight:700;margin-bottom:4px}
+    .doc .party .nm{font-weight:700;font-size:16px;color:#1E293B;margin-bottom:3px}
+    .doc .party .det{font-size:13px;color:#64748B;line-height:1.6;white-space:pre-line}
+    .doc table.doc-items{width:100%;border-collapse:collapse;margin:14px 0}
+    .doc table.doc-items th{background:#1E293B;color:#fff;text-align:left;padding:12px 14px;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+    .doc table.doc-items th:last-child,.doc table.doc-items td:last-child{text-align:right}
+    .doc table.doc-items td{padding:12px 14px;border-bottom:1px solid #E2E8F0;font-size:14px}
+    .doc table.doc-items tr:last-child td{border-bottom:none}
+    .doc .doc-totals{margin-left:auto;width:280px;margin-top:18px}
+    .doc .doc-totals .trow{display:flex;justify-content:space-between;padding:7px 0;font-size:14px;color:#64748B}
+    .doc .doc-totals .trow b{color:#1E293B}
+    .doc .doc-totals .grand{border-top:2px solid #1E293B;margin-top:6px;padding-top:12px;font-size:20px;font-weight:800;color:#1E293B;font-family:'Plus Jakarta Sans'}
+    .doc .doc-totals .grand .amt{color:#2563EB}
+    .doc .doc-foot{margin-top:36px;padding-top:20px;border-top:1px solid #E2E8F0;font-size:12px;color:#94A3B8;text-align:center}
+    .doc .status-pill{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+    .doc .status-pill.paid{background:#DCFCE7;color:#166534}
+    .doc .status-pill.unpaid{background:#FEE2E2;color:#991B1B}
+    .doc .status-pill.partial{background:#FEF3C7;color:#92400E}
+    .preview-empty{text-align:center;padding:80px 20px;color:var(--muted)}
+    .preview-empty .em{font-size:54px;margin-bottom:14px}
+
+    /* ===== CONTENT / BLOG ===== */
+    .layout{display:grid;grid-template-columns:1fr 320px;gap:34px;padding:40px 0 70px}
+    .crumbs{font-size:13px;color:var(--muted);margin-bottom:18px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .crumbs a{color:var(--muted)}
+    .crumbs a:hover{color:var(--primary)}
+    .crumbs .sep{opacity:.5}
+    .crumbs .cur{color:var(--text);font-weight:600}
+
+    .post-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+    .post-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+    .post-card .thumb{aspect-ratio:16/9;background:var(--grad);position:relative;overflow:hidden}
+    .post-card .thumb img{width:100%;height:100%;object-fit:cover}
+    .post-card .body{padding:22px;flex:1;display:flex;flex-direction:column}
+    .post-card .cat{display:inline-block;color:var(--accent);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+    .post-card h3{font-size:19px;margin-bottom:8px;line-height:1.3}
+    .post-card h3 a{color:var(--text)}
+    .post-card h3 a:hover{color:var(--primary)}
+    .post-card p{color:var(--muted);font-size:14px;margin-bottom:14px;flex:1}
+    .post-card .meta{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);align-items:center}
+
+    .post-list{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .post-single{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .post-single .feature-img{aspect-ratio:21/9;background:var(--grad)}
+    .post-single .feature-img img{width:100%;height:100%;object-fit:cover}
+    .post-single .body{padding:34px}
+    .post-single h1{font-size:clamp(26px,4vw,38px);margin:8px 0 14px}
+    .post-single .meta{color:var(--muted);font-size:13px;margin-bottom:24px;display:flex;gap:14px;flex-wrap:wrap}
+    .post-single .post-content{font-size:17px;line-height:1.85;color:var(--text)}
+    .post-single .post-content h2{font-size:26px;margin:30px 0 12px}
+    .post-single .post-content h3{font-size:21px;margin:24px 0 10px}
+    .post-single .post-content p{margin-bottom:16px}
+    .post-single .post-content ul,.post-single .post-content ol{margin:0 0 16px 1.2rem}
+    .post-single .post-content li{margin-bottom:6px}
+    .post-single .post-content blockquote{border-left:4px solid var(--primary);padding:10px 20px;margin:18px 0;background:rgba(37,99,235,.04);border-radius:8px;color:var(--muted)}
+    .post-single .post-content img{border-radius:12px;margin:14px 0}
+    .post-single .post-content a{color:var(--primary);text-decoration:underline}
+    .post-labels{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0;padding-top:20px;border-top:1px solid var(--border)}
+    .post-labels a{background:rgba(37,99,235,.08);color:var(--primary);padding:5px 12px;border-radius:20px;font-size:13px;font-weight:600}
+    .author-box{display:flex;gap:16px;align-items:center;padding:20px;background:rgba(37,99,235,.04);border-radius:var(--radius);margin-top:24px}
+    .author-box .av{width:60px;height:60px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:800;font-size:22px;font-family:'Plus Jakarta Sans'}
+    .author-box b{display:block;font-size:16px}
+    .author-box span{color:var(--muted);font-size:13.5px}
+
+    /* Static page */
+    .page-body{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;box-shadow:var(--shadow)}
+    .page-body h1{font-size:34px;margin-bottom:8px}
+    .page-body .updated{color:var(--muted);font-size:13px;margin-bottom:26px}
+    .page-body h2{font-size:24px;margin:30px 0 12px}
+    .page-body h3{font-size:19px;margin:22px 0 8px}
+    .page-body p{margin-bottom:14px;color:var(--text)}
+    .page-body ul,.page-body ol{margin:0 0 14px 1.2rem}
+    .page-body li{margin-bottom:6px}
+    .page-body a{color:var(--primary);text-decoration:underline}
+
+    /* ===== SIDEBAR ===== */
+    .sidebar{display:flex;flex-direction:column;gap:22px;position:sticky;top:84px}
+    .widget{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+    .widget h3,.widget .title{font-size:16px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--border);font-weight:700}
+    .widget ul{list-style:none;padding:0;margin:0}
+    .widget li{padding:9px 0;border-bottom:1px solid var(--border);font-size:14px}
+    .widget li:last-child{border-bottom:none}
+    .widget a{color:var(--text)}
+    .widget a:hover{color:var(--primary)}
+    .search-box{display:flex;gap:8px}
+    .search-box input{flex:1;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);font-family:inherit;font-size:14px}
+    [data-theme="dark"] .search-box input{background:#0B1220}
+    .search-box button{background:var(--grad);color:#fff;border:none;padding:0 18px;border-radius:10px;cursor:pointer;font-weight:600}
+    .pop-post{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border)}
+    .pop-post:last-child{border-bottom:none}
+    .pop-post .pp-thumb{width:64px;height:64px;border-radius:10px;background:var(--grad);flex-shrink:0;overflow:hidden}
+    .pop-post .pp-thumb img{width:100%;height:100%;object-fit:cover}
+    .pop-post .pp-body h4{font-size:14px;font-weight:600;line-height:1.35;margin-bottom:4px;font-family:Inter}
+    .pop-post .pp-body h4 a{color:var(--text)}
+    .pop-post .pp-body span{font-size:12px;color:var(--muted)}
+    .social-links{display:flex;gap:10px;flex-wrap:wrap}
+    .social-links a{width:40px;height:40px;border-radius:10px;background:rgba(37,99,235,.08);color:var(--primary);display:grid;place-items:center;font-size:16px;font-weight:700}
+    .social-links a:hover{background:var(--grad);color:#fff;transform:translateY(-2px)}
+
+    /* ===== ADS ===== */
+    .ad-zone{background:rgba(37,99,235,.03);border:1px dashed var(--border);border-radius:var(--radius);padding:18px;text-align:center;color:var(--muted);font-size:13px;margin:18px 0;min-height:90px;display:grid;place-items:center}
+    .ad-zone::before{content:"Advertisement";display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:4px}
+    .ad-zone[data-empty="false"]::before{display:none}
+    .ad-zone[data-empty="false"]{background:transparent;border:none;padding:0;min-height:auto}
+    .header-ad{margin:0 auto;max-width:var(--maxw);padding:8px 20px}
+    .home-ad{margin:30px auto;max-width:970px;padding:0 20px}
+
+    /* ===== FOOTER ===== */
+    .site-footer{background:var(--secondary);color:#CBD5E1;padding:60px 0 0;margin-top:60px}
+    [data-theme="dark"] .site-footer{background:#070C18}
+    .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:36px;padding-bottom:40px}
+    .footer-brand .brand{color:#fff;margin-bottom:14px}
+    .footer-brand p{font-size:14px;color:#94A3B8;margin-bottom:18px;max-width:300px}
+    .footer-col h4{color:#fff;font-size:15px;margin-bottom:18px;text-transform:uppercase;letter-spacing:.06em;font-family:Inter}
+    .footer-col ul{list-style:none;padding:0}
+    .footer-col li{margin-bottom:10px}
+    .footer-col a{color:#94A3B8;font-size:14px}
+    .footer-col a:hover{color:#fff}
+    .footer-contact .item{display:flex;gap:10px;margin-bottom:12px;font-size:14px;color:#94A3B8}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;color:#94A3B8}
+    .footer-bottom a{color:#CBD5E1}
+
+    /* PWA install button */
+    #installAppBtn{display:none}
+    #installAppBtn.show{display:inline-flex}
+
+    /* Pagination */
+    .blog-pager{display:flex;justify-content:center;gap:10px;margin:40px 0 0;flex-wrap:wrap}
+    .blog-pager a,.blog-pager span{padding:10px 18px;border-radius:10px;background:var(--card);border:1px solid var(--border);font-weight:600;font-size:14px;color:var(--text)}
+    .blog-pager a:hover{border-color:var(--primary);color:var(--primary)}
+    #blog-pager .selected{background:var(--grad);color:#fff;border-color:transparent}
+
+    /* Toast */
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--secondary);color:#fff;padding:14px 24px;border-radius:12px;font-weight:600;font-size:14px;z-index:9999;box-shadow:var(--shadow-lg);transition:transform .3s ease}
+    [data-theme="dark"] .toast{background:#1E293B}
+    .toast.show{transform:translateX(-50%) translateY(0)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero-grid,.tool-layout{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+      .layout{grid-template-columns:1fr}
+      .sidebar{position:static}
+      .preview-wrap{position:static}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .hero-card{order:-1;max-width:480px}
+    }
+    @media (max-width:760px){
+      .nav-menu{display:none}
+      .menu-toggle{display:grid}
+      .grid-3,.grid-2{grid-template-columns:1fr}
+      .post-list{grid-template-columns:1fr}
+      .field-row{grid-template-columns:1fr}
+      .hero{padding:50px 0 40px}
+      .section{padding:50px 0}
+      .doc{padding:24px}
+      .doc .doc-head{flex-direction:column;gap:14px}
+      .doc .parties{grid-template-columns:1fr}
+      .cta{padding:40px 24px}
+      .page-body,.post-single .body{padding:24px}
+      .footer-grid{grid-template-columns:1fr;gap:28px}
+      .tool-actions .btn{flex:1 1 100%}
+    }
+    @media print{
+      .site-header,.site-footer,.sidebar,.preview-toolbar,.nav,.ad-zone,.cta,.tool-form,#installAppBtn,.menu-toggle,.crumbs,.adsterra-zone,.footer-ad{display:none !important}
+      body{background:#fff}
+      .preview-wrap{position:static !important}
+      .doc{box-shadow:none;border:none;max-width:100%;margin:0;padding:0}
+      .tool-page,.container{padding:0;max-width:100%}
+      .tool-layout{display:block}
+    }
+  ]]></b:skin>
+
+  <b:template-skin><![CDATA[
+    body{min-width:0}
+    .body-fauxcolumns,.body-fauxcolumn-outer{margin:0;padding:0}
+    .content-outer{margin:0 auto;padding:0}
+    .header-outer{margin:0}
+    .footer-outer{margin:0}
+  ]]></b:template-skin>
+
+</head>
+
+<body>
+
+  <!-- Adsterra: Header Banner -->
+  <div class='header-ad'>
+    <div class='adsterra-zone' data-slot='header' id='adsterra-header'><!-- AD:HEADER --></div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class='site-header'>
+    <nav class='nav'>
+      <a class='brand' expr:href='data:blog.homepageUrl'>
+        <span class='logo'>iP</span> Invoice<span>Pro</span>
+      </a>
+      <ul class='nav-menu'>
+        <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;p/invoice-generator.html&quot;'>Invoice</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;p/receipt-generator.html&quot;'>Receipt</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;p/about.html&quot;'>About</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;p/contact.html&quot;'>Contact</a></li>
+      </ul>
+      <div class='nav-actions'>
+        <button aria-label='Install App' class='theme-toggle' id='installAppBtn' title='Install App' type='button'>&#10515;</button>
+        <button aria-label='Toggle theme' class='theme-toggle' id='themeToggle' title='Toggle dark mode' type='button'>&#9790;</button>
+        <a class='btn btn-primary' expr:href='data:blog.homepageUrl + &quot;p/invoice-generator.html&quot;' style='padding:11px 20px'>Create Invoice</a>
+        <button aria-label='Menu' class='menu-toggle' id='menuToggle' type='button'>&#9776;</button>
+      </div>
+    </nav>
+    <div class='nav-mobile' id='navMobile'>
+      <a expr:href='data:blog.homepageUrl'>Home</a>
+      <a expr:href='data:blog.homepageUrl + &quot;p/invoice-generator.html&quot;'>Invoice Generator</a>
+      <a expr:href='data:blog.homepageUrl + &quot;p/receipt-generator.html&quot;'>Receipt Generator</a>
+      <a expr:href='data:blog.homepageUrl + &quot;p/about.html&quot;'>About</a>
+      <a expr:href='data:blog.homepageUrl + &quot;p/contact.html&quot;'>Contact</a>
+      <a expr:href='data:blog.homepageUrl + &quot;p/privacy-policy.html&quot;'>Privacy Policy</a>
+      <a expr:href='data:blog.homepageUrl + &quot;p/terms.html&quot;'>Terms &amp; Conditions</a>
+    </div>
+  </header>
+
+  <main id='main-wrap'>
+
+    <!-- ========== HOMEPAGE ========== -->
+    <b:if cond='data:blog.pageType == &quot;index&quot;'>
+
+      <!-- HERO -->
+      <section class='hero'>
+        <div class='container'>
+          <div class='hero-grid'>
+            <div class='hero-copy'>
+              <span class='hero-eyebrow'>&#9889; Free Online Invoice &amp; Receipt Maker</span>
+              <h1>Create <span class='grad'>Professional Invoices</span> in Seconds</h1>
+              <p class='lead'>Generate, print and download polished invoices and receipts right from your browser. No sign-up. No watermark. Just clean, business-ready documents.</p>
+              <div class='hero-cta'>
+                <a class='btn btn-primary' expr:href='data:blog.homepageUrl + &quot;p/invoice-generator.html&quot;'>Make an Invoice &#8594;</a>
+                <a class='btn btn-ghost' expr:href='data:blog.homepageUrl + &quot;p/receipt-generator.html&quot;'>Create a Receipt</a>
+              </div>
+              <div class='hero-stats'>
+                <div class='stat'><b>100% Free</b><span>No hidden fees</span></div>
+                <div class='stat'><b>PDF + Print</b><span>One click export</span></div>
+                <div class='stat'><b>Private</b><span>Runs in browser</span></div>
+              </div>
+            </div>
+            <div class='hero-card'>
+              <div class='mini-invoice'>
+                <div class='mi-top'>
+                  <div>
+                    <div class='mi-title'>Invoice #INV-2026</div>
+                    <div style='color:var(--muted);font-size:12px'>Due: Dec 31, 2026</div>
+                  </div>
+                  <span class='mi-badge'>DUE</span>
+                </div>
+                <div class='mi-row'><span>Design Services</span><b>$1,200</b></div>
+                <div class='mi-row'><span>Consultation</span><b>$400</b></div>
+                <div class='mi-row'><span>Tax (8%)</span><b>$128</b></div>
+                <div class='mi-row total'><span>Total</span><span class='amt'>$1,728.00</span></div>
+                <div class='mi-bar'><i></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class='section'>
+        <div class='container'>
+          <div class='section-head'>
+            <span class='eyebrow'>Why InvoicePro</span>
+            <h2>Everything you need to bill clients</h2>
+            <p>A complete, fast and beautiful billing toolkit built for freelancers, small businesses and agencies.</p>
+          </div>
+          <div class='grid grid-3'>
+            <div class='feature'>
+              <div class='ico'>&#128196;</div>
+              <h3>Smart Invoices</h3>
+              <p>Auto-calculating line items, tax and discount with a clean, branded layout ready to send.</p>
+            </div>
+            <div class='feature'>
+              <div class='ico'>&#128179;</div>
+              <h3>Instant Receipts</h3>
+              <p>Issue professional receipts with payment status, method and transaction ID in one click.</p>
+            </div>
+            <div class='feature'>
+              <div class='ico'>&#128229;</div>
+              <h3>PDF &amp; Print</h3>
+              <p>Export pixel-perfect PDFs or print directly. Share via link without ever uploading data.</p>
+            </div>
+            <div class='feature'>
+              <div class='ico'>&#127769;</div>
+              <h3>Dark Mode</h3>
+              <p>A premium glassmorphism interface with light and dark themes that respect your preference.</p>
+            </div>
+            <div class='feature'>
+              <div class='ico'>&#128274;</div>
+              <h3>Privacy First</h3>
+              <p>All data stays in your browser. Nothing is stored on a server or shared with third parties.</p>
+            </div>
+            <div class='feature'>
+              <div class='ico'>&#128241;</div>
+              <h3>Installable PWA</h3>
+              <p>Add InvoicePro to your home screen and work offline, like a native app on any device.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Adsterra: Home Banner -->
+      <div class='home-ad'>
+        <div class='adsterra-zone' data-slot='home-banner' id='adsterra-home-banner'><!-- AD:HOME-BANNER --></div>
+      </div>
+
+      <!-- TOOLS -->
+      <section class='section' style='background:rgba(37,99,235,.03)'>
+        <div class='container'>
+          <div class='section-head'>
+            <span class='eyebrow'>Our Tools</span>
+            <h2>Two powerful generators</h2>
+            <p>Pick a tool and produce a polished, business-ready document in under a minute.</p>
+          </div>
+          <div class='grid grid-2'>
+            <div class='tool'>
+              <div class='tico'>&#128196;</div>
+              <div>
+                <h3>Invoice Generator</h3>
+                <p>Build detailed invoices with multiple items, tax and discount.</p>
+                <a class='arrow' expr:href='data:blog.homepageUrl + &quot;p/invoice-generator.html&quot;'>Open invoice tool &#8594;</a>
+              </div>
+            </div>
+            <div class='tool'>
+              <div class='tico'>&#128179;</div>
+              <div>
+                <h3>Receipt Generator</h3>
+                <p>Create clear payment receipts with status and method.</p>
+                <a class='arrow' expr:href='data:blog.homepageUrl + &quot;p/receipt-generator.html&quot;'>Open receipt tool &#8594;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFITS / HOW IT WORKS -->
+      <section class='section'>
+        <div class='container'>
+          <div class='section-head'>
+            <span class='eyebrow'>How It Works</span>
+            <h2>Three steps to a perfect document</h2>
+          </div>
+          <div class='steps' style='max-width:760px;margin:0 auto'>
+            <div class='step'>
+              <div class='n'>1</div>
+              <div><h3>Fill in the details</h3><p>Add your company, your client, dates and the items or payment information.</p></div>
+            </div>
+            <div class='step'>
+              <div class='n'>2</div>
+              <div><h3>Preview instantly</h3><p>Watch a clean, professional document build live as you type.</p></div>
+            </div>
+            <div class='step'>
+              <div class='n'>3</div>
+              <div><h3>Download or print</h3><p>Export to PDF, print, or share a link. Send it to your client in seconds.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class='section' style='background:rgba(37,99,235,.03)'>
+        <div class='container'>
+          <div class='section-head'>
+            <span class='eyebrow'>FAQ</span>
+            <h2>Frequently asked questions</h2>
+          </div>
+          <div style='max-width:780px;margin:0 auto' id='faqList'>
+            <div class='faq-item'>
+              <button class='faq-q' type='button'>Is InvoicePro really free?<span class='pm'>+</span></button>
+              <div class='faq-a'><div><p>Yes. Every feature including PDF export and printing is completely free with no watermark and no sign-up required.</p></div></div>
+            </div>
+            <div class='faq-item'>
+              <button class='faq-q' type='button'>Is my data safe?<span class='pm'>+</span></button>
+              <div class='faq-a'><div><p>Completely. All generation happens locally in your browser. We never receive, store or transmit your invoice or receipt data.</p></div></div>
+            </div>
+            <div class='faq-item'>
+              <button class='faq-q' type='button'>Can I use my own logo and currency?<span class='pm'>+</span></button>
+              <div class='faq-a'><div><p>Absolutely. Enter your company name and details, choose your currency symbol, and your branding appears on every document.</p></div></div>
+            </div>
+            <div class='faq-item'>
+              <button class='faq-q' type='button'>Does it work on mobile?<span class='pm'>+</span></button>
+              <div class='faq-a'><div><p>Yes. InvoicePro is fully responsive and installable as a PWA, so it works beautifully on phones, tablets and desktops.</p></div></div>
+            </div>
+            <div class='faq-item'>
+              <button class='faq-q' type='button'>Can I work offline?<span class='pm'>+</span></button>
+              <div class='faq-a'><div><p>Once you have loaded the site once, the service worker caches it and you can keep creating documents without an internet connection.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOG POSTS -->
+      <section class='section'>
+        <div class='container'>
+          <div class='section-head'>
+            <span class='eyebrow'>From The Blog</span>
+            <h2>Guides &amp; invoicing tips</h2>
+            <p>Learn how to invoice smarter, get paid faster and grow your business.</p>
+          </div>
+          <div class='post-list'>
+            <b:section class='home-posts' id='home-posts' maxwidgets='1' showaddelement='no'>
+              <b:widget id='FeaturedPost1' locked='false' title='Latest Posts' type='FeaturedPost' version='2'>
+                <b:includable id='main'>
+                  <b:loop values='data:posts' var='post'>
+                    <article class='post-card'>
+                      <a class='thumb' expr:href='data:post.url'>
+                        <b:if cond='data:post.featuredImage'>
+                          <img expr:alt='data:post.title' expr:src='data:post.featuredImage' loading='lazy'/>
+                        </b:if>
+                      </a>
+                      <div class='body'>
+                        <b:if cond='data:post.labels'>
+                          <span class='cat'><data:post.labels.first.name/></span>
+                        </b:if>
+                        <h3><a expr:href='data:post.url'><data:post.title/></a></h3>
+                        <p><data:post.snippet/></p>
+                        <div class='meta'>
+                          <span><data:post.date/></span>
+                          <a expr:href='data:post.url'>Read more &#8594;</a>
+                        </div>
+                      </div>
+                    </article>
+                  </b:loop>
+                </b:includable>
+              </b:widget>
+            </b:section>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class='section'>
+        <div class='container'>
+          <div class='cta'>
+            <h2>Ready to send your first invoice?</h2>
+            <p>Join thousands of freelancers and small businesses creating professional documents for free.</p>
+            <a class='btn' expr:href='data:blog.homepageUrl + &quot;p/invoice-generator.html&quot;'>Start Now &#8594;</a>
+          </div>
+        </div>
+      </section>
+
+    </b:if>
+
+    <!-- ========== STATIC PAGES ========== -->
+    <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+      <div class='container'>
+        <div class='tool-page' style='padding-top:40px'>
+          <div class='crumbs'>
+            <a expr:href='data:blog.homepageUrl'>Home</a><span class='sep'>/</span><span class='cur'><data:blog.pageName/></span>
+          </div>
+
+          <!-- INVOICE GENERATOR -->
+          <b:if cond='data:blog.pageName == &quot;Invoice Generator&quot;'>
+            <div class='tool-layout'>
+              <div class='tool-form glass'>
+                <h2>Invoice Generator</h2>
+                <div class='sub'>Fill the form. Your invoice builds live on the right.</div>
+
+                <div class='field-row'>
+                  <div class='field'><label>Your Company</label><input id='invCoName' placeholder='Acme Studio LLC' type='text' value='Acme Studio LLC'/></div>
+                  <div class='field'><label>Currency</label>
+                    <select id='invCurrency'>
+                      <option value='$'>$ &#8212; USD</option><option value='&#8364;'>&#8364; &#8212; EUR</option><option value='&#163;'>&#163; &#8212; GBP</option><option value='&#8377;'>&#8377; &#8212; INR</option><option value='&#165;'>&#165; &#8212; JPY</option><option value='A$'>A$ &#8212; AUD</option><option value='C$'>C$ &#8212; CAD</option>
+                    </select>
+                  </div>
+                </div>
+                <div class='field'><label>Company Address</label><textarea id='invCoAddr' placeholder='123 Business Ave, Suite 100&#10;New York, NY 10001&#10;billing@acme.com'>123 Business Ave, Suite 100&#10;New York, NY 10001&#10;billing@acme.com</textarea></div>
+
+                <div class='field-row'>
+                  <div class='field'><label>Bill To (Client)</label><input id='invClient' placeholder='Client name' type='text' value='Globex Corporation'/></div>
+                  <div class='field'><label>Client Address</label><input id='invClientAddr' placeholder='Client address' type='text' value='500 Market St, San Francisco, CA'/></div>
+                </div>
+                <div class='field-row'>
+                  <div class='field'><label>Invoice Number</label><input id='invNo' type='text' value='INV-2026-001'/></div>
+                  <div class='field'><label>Due Date</label><input id='invDue' type='date'/></div>
+                </div>
+
+                <label style='display:block;font-weight:600;font-size:13px;margin:8px 0'>Items</label>
+                <table class='items-table' id='invItems'>
+                  <thead><tr><th>Description</th><th class='col-qty'>Qty</th><th class='col-price'>Price</th><th>Total</th><th></th></tr></thead>
+                  <tbody id='invItemsBody'>
+                    <tr>
+                      <td><input class='i-desc' type='text' value='Logo design'/></td>
+                      <td class='col-qty'><input class='i-qty' type='number' value='1'/></td>
+                      <td class='col-price'><input class='i-price' type='number' value='800'/></td>
+                      <td class='i-total'>800</td>
+                      <td><button class='del-row' type='button'>&#215;</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class='add-item' id='invAddItem' type='button'>+ Add item</button>
+
+                <div class='field-row'>
+                  <div class='field'><label>Tax (%)</label><input id='invTax' min='0' type='number' value='0'/></div>
+                  <div class='field'><label>Discount (%)</label><input id='invDisc' min='0' type='number' value='0'/></div>
+                </div>
+
+                <div class='totals'>
+                  <div class='trow'><span>Subtotal</span><span class='inv-subtotal'>$0.00</span></div>
+                  <div class='trow'><span>Tax</span><span class='inv-tax'>$0.00</span></div>
+                  <div class='trow'><span>Discount</span><span class='inv-disc'>$0.00</span></div>
+                  <div class='trow grand'><span>Total Due</span><span class='amt inv-total'>$0.00</span></div>
+                </div>
+
+                <div class='tool-actions'>
+                  <button class='btn btn-primary' id='invPdf' type='button'>&#128229; Download PDF</button>
+                  <button class='btn btn-ghost' id='invPrint' type='button'>&#128424; Print</button>
+                  <button class='btn btn-ghost' id='invShare' type='button'>&#128279; Share</button>
+                </div>
+                <div class='note'>&#9888; <span>Your data never leaves your browser. No information is uploaded to any server.</span></div>
+              </div>
+
+              <div class='preview-wrap'>
+                <div class='preview-toolbar'>
+                  <span class='ttl'>Live Preview</span>
+                </div>
+                <div class='doc' id='invPreview'>
+                  <div class='doc-head'>
+                    <div>
+                      <div class='doc-brand' id='pBrand'>Acme Studio <span>LLC</span></div>
+                      <div style='color:#64748B;font-size:13px;margin-top:4px;white-space:pre-line' id='pCoAddr'></div>
+                    </div>
+                    <div>
+                      <div class='doc-type'>INVOICE</div>
+                      <div class='doc-meta' style='margin-top:8px'>
+                        <div><b>#</b><span id='pInvNo'></span></div>
+                        <div><b>Due:</b> <span id='pDue'></span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='parties'>
+                    <div class='party'>
+                      <div class='lbl'>Bill To</div>
+                      <div class='nm' id='pClient'></div>
+                      <div class='det' id='pClientAddr'></div>
+                    </div>
+                    <div class='party' style='text-align:right'>
+                      <div class='lbl'>From</div>
+                      <div class='nm' id='pCoName'></div>
+                    </div>
+                  </div>
+                  <table class='doc-items'>
+                    <thead><tr><th>Description</th><th>Qty</th><th>Price</th><th>Amount</th></tr></thead>
+                    <tbody id='pItems'></tbody>
+                  </table>
+                  <div class='doc-totals' id='pTotals'></div>
+                  <div class='doc-foot'>Thank you for your business. Payment is due within the terms stated above.</div>
+                </div>
+              </div>
+            </div>
+          </b:if>
+
+          <!-- RECEIPT GENERATOR -->
+          <b:if cond='data:blog.pageName == &quot;Receipt Generator&quot;'>
+            <div class='tool-layout'>
+              <div class='tool-form glass'>
+                <h2>Receipt Generator</h2>
+                <div class='sub'>Create a clear, professional payment receipt.</div>
+
+                <div class='field-row'>
+                  <div class='field'><label>Business Name</label><input id='rcCoName' placeholder='Your business' type='text' value='Acme Studio LLC'/></div>
+                  <div class='field'><label>Currency</label>
+                    <select id='rcCurrency'>
+                      <option value='$'>$ &#8212; USD</option><option value='&#8364;'>&#8364; &#8212; EUR</option><option value='&#163;'>&#163; &#8212; GBP</option><option value='&#8377;'>&#8377; &#8212; INR</option><option value='&#165;'>&#165; &#8212; JPY</option><option value='A$'>A$ &#8212; AUD</option><option value='C$'>C$ &#8212; CAD</option>
+                    </select>
+                  </div>
+                </div>
+                <div class='field'><label>Business Address</label><textarea id='rcCoAddr' placeholder='Address, email, phone'>123 Business Ave, Suite 100&#10;New York, NY 10001&#10;billing@acme.com</textarea></div>
+                <div class='field-row'>
+                  <div class='field'><label>Receipt Number</label><input id='rcNo' type='text' value='RCP-2026-001'/></div>
+                  <div class='field'><label>Date</label><input id='rcDate' type='date'/></div>
+                </div>
+                <div class='field-row'>
+                  <div class='field'><label>Received From</label><input id='rcFrom' placeholder='Payer name' type='text' value='Globex Corporation'/></div>
+                  <div class='field'><label>Payment For</label><input id='rcFor' placeholder='Service / product' type='text' value='Web design services'/></div>
+                </div>
+                <div class='field-row'>
+                  <div class='field'><label>Amount</label><input id='rcAmount' min='0' type='number' value='1500'/></div>
+                  <div class='field'><label>Payment Method</label>
+                    <select id='rcMethod'>
+                      <option>Cash</option><option>Credit Card</option><option>Debit Card</option><option>Bank Transfer</option><option>PayPal</option><option>Stripe</option><option>Crypto</option><option>Cheque</option><option>Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class='field-row'>
+                  <div class='field'><label>Payment Status</label>
+                    <select id='rcStatus'>
+                      <option value='paid'>Paid</option><option value='partial'>Partial</option><option value='unpaid'>Unpaid</option>
+                    </select>
+                  </div>
+                  <div class='field'><label>Transaction ID</label><input id='rcTxn' placeholder='Optional' type='text' value='TXN-9F8E7D6C'/></div>
+                </div>
+
+                <div class='tool-actions'>
+                  <button class='btn btn-primary' id='rcPdf' type='button'>&#128229; Download PDF</button>
+                  <button class='btn btn-ghost' id='rcPrint' type='button'>&#128424; Print</button>
+                </div>
+                <div class='note'>&#9888; <span>Receipts are generated locally in your browser. Nothing is stored or uploaded.</span></div>
+              </div>
+
+              <div class='preview-wrap'>
+                <div class='preview-toolbar'>
+                  <span class='ttl'>Live Preview</span>
+                </div>
+                <div class='doc' id='rcPreview'>
+                  <div class='doc-head'>
+                    <div>
+                      <div class='doc-brand' id='rpCoName'></div>
+                      <div style='color:#64748B;font-size:13px;margin-top:4px;white-space:pre-line' id='rpCoAddr'></div>
+                    </div>
+                    <div style='text-align:right'>
+                      <div class='doc-type'>RECEIPT</div>
+                      <div class='doc-meta' style='margin-top:8px'>
+                        <div><b>#</b><span id='rpNo'></span></div>
+                        <div><b>Date:</b> <span id='rpDate'></span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='parties'>
+                    <div class='party'>
+                      <div class='lbl'>Received From</div>
+                      <div class='nm' id='rpFrom'></div>
+                    </div>
+                    <div class='party' style='text-align:right'>
+                      <div class='lbl'>Amount</div>
+                      <div class='nm' id='rpAmount'></div>
+                      <div class='det'><span class='status-pill paid' id='rpStatusPill'></span></div>
+                    </div>
+                  </div>
+                  <table class='doc-items'>
+                    <tbody>
+                      <tr><td>Payment For</td><td id='rpFor'></td></tr>
+                      <tr><td>Payment Method</td><td id='rpMethod'></td></tr>
+                      <tr><td>Transaction ID</td><td id='rpTxn'></td></tr>
+                      <tr><td>Status</td><td id='rpStatus'></td></tr>
+                    </tbody>
+                  </table>
+                  <div class='doc-totals'>
+                    <div class='grand' style='text-transform:uppercase;letter-spacing:.05em'><span>Total Received</span><span class='amt' id='rpTotal'></span></div>
+                  </div>
+                  <div class='doc-foot'>This receipt confirms payment has been received for the item(s) described above.</div>
+                </div>
+              </div>
+            </div>
+          </b:if>
+
+          <!-- ABOUT -->
+          <b:if cond='data:blog.pageName == &quot;About&quot;'>
+            <div class='page-body'>
+              <h1>About InvoicePro</h1>
+              <p>InvoicePro is a free, fast and private online tool for creating professional invoices and receipts. Built with modern web technology, it helps freelancers, agencies and small businesses produce polished, business-ready documents in seconds.</p>
+              <h2>Our mission</h2>
+              <p>We believe getting paid should be simple. Invoicing software is often expensive, bloated and forces you to create an account just to send a single bill. InvoicePro changes that by putting a complete, beautiful generator right in your browser, free, with no sign-up and no watermark.</p>
+              <h2>Why we are different</h2>
+              <ul>
+                <li><b>Privacy first.</b> All data stays on your device. We never receive or store your information.</li>
+                <li><b>Truly free.</b> Every feature, including PDF export, is available at no cost.</li>
+                <li><b>Beautiful by default.</b> A modern, glassmorphism interface and clean document templates.</li>
+                <li><b>Works anywhere.</b> Fully responsive and installable as a progressive web app for offline use.</li>
+              </ul>
+              <h2>The technology</h2>
+              <p>InvoicePro runs as a Blogger theme, uses a service worker for offline access, and supports both light and dark themes. Documents are generated entirely client-side, so the moment you load the page you can work without depending on a remote server.</p>
+            </div>
+          </b:if>
+
+          <!-- CONTACT -->
+          <b:if cond='data:blog.pageName == &quot;Contact&quot;'>
+            <div class='page-body'>
+              <h1>Contact Us</h1>
+              <p>Have a question, feature request or partnership idea? We would love to hear from you.</p>
+              <h2>Get in touch</h2>
+              <div class='author-box' style='background:rgba(37,99,235,.04);margin-top:14px'>
+                <div class='av' style='width:54px;height:54px;font-size:20px'>&#9993;</div>
+                <div>
+                  <b>Email</b>
+                  <span>support@yourdomain.com</span>
+                </div>
+              </div>
+              <h2>Send a message</h2>
+              <form id='contactForm' onsubmit='return false' style='display:grid;gap:14px;margin-top:10px'>
+                <div class='field-row'>
+                  <div class='field'><label>Your Name</label><input required='required' type='text'/></div>
+                  <div class='field'><label>Your Email</label><input required='required' type='email'/></div>
+                </div>
+                <div class='field'><label>Subject</label><input type='text'/></div>
+                <div class='field'><label>Message</label><textarea required='required' rows='6'></textarea></div>
+                <button class='btn btn-primary' style='justify-self:start' type='submit'>Send Message</button>
+              </form>
+            </div>
+          </b:if>
+
+          <!-- PRIVACY POLICY -->
+          <b:if cond='data:blog.pageName == &quot;Privacy Policy&quot;'>
+            <div class='page-body'>
+              <h1>Privacy Policy</h1>
+              <div class='updated'>Last updated: June 22, 2026</div>
+              <p>This Privacy Policy explains how InvoicePro (&quot;we&quot;, &quot;us&quot;) handles information when you use our website and tools. By using the site you agree to the practices described below.</p>
+              <h2>1. Information we collect</h2>
+              <p>InvoicePro is designed to be privacy-first. The invoice and receipt generators run entirely in your browser. We do <b>not</b> collect, transmit or store any of the information you enter into the generators, including names, addresses, amounts or business details.</p>
+              <h2>2. Analytics</h2>
+              <p>We may use privacy-respecting analytics to understand aggregate traffic and improve the service. These tools do not collect personally identifiable billing data.</p>
+              <h2>3. Advertising</h2>
+              <p>This site displays ads through third-party networks such as Adsterra. These networks may use cookies or similar technologies to serve relevant ads. You can manage cookie preferences through your browser settings.</p>
+              <h2>4. Local storage</h2>
+              <p>We may store preferences such as your theme choice (light or dark) in your browser&#39;s local storage. This data never leaves your device.</p>
+              <h2>5. Children&#39;s privacy</h2>
+              <p>The service is not directed to children under 13, and we do not knowingly collect information from them.</p>
+              <h2>6. Your rights</h2>
+              <p>Because we do not store your personal data, there is no account or profile to delete. For questions about ad networks, contact the relevant provider directly.</p>
+              <h2>7. Changes to this policy</h2>
+              <p>We may update this policy from time to time. Material changes will be reflected by updating the date above.</p>
+              <h2>8. Contact</h2>
+              <p>For privacy questions, contact us at support@yourdomain.com.</p>
+            </div>
+          </b:if>
+
+          <!-- TERMS -->
+          <b:if cond='data:blog.pageName == &quot;Terms &amp; Conditions&quot;'>
+            <div class='page-body'>
+              <h1>Terms &amp; Conditions</h1>
+              <div class='updated'>Last updated: June 22, 2026</div>
+              <p>These Terms govern your use of InvoicePro. By accessing or using the website you agree to be bound by these Terms. If you do not agree, please do not use the service.</p>
+              <h2>1. License to use</h2>
+              <p>We grant you a personal, non-exclusive, non-transferable license to use InvoicePro for generating invoices and receipts for lawful business purposes.</p>
+              <h2>2. Acceptable use</h2>
+              <ul>
+                <li>You agree not to use the tools for any unlawful, fraudulent or deceptive purpose.</li>
+                <li>You are solely responsible for the accuracy and legality of the documents you create.</li>
+                <li>You may not attempt to disrupt, reverse engineer or abuse the service.</li>
+              </ul>
+              <h2>3. No warranty</h2>
+              <p>The service is provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind, express or implied. We do not guarantee that the tools will be error-free or uninterrupted.</p>
+              <h2>4. Limitation of liability</h2>
+              <p>To the maximum extent permitted by law, InvoicePro shall not be liable for any indirect, incidental or consequential damages arising from your use of the service.</p>
+              <h2>5. Third-party services</h2>
+              <p>The site may display third-party advertisements and link to third-party websites. We are not responsible for the content or practices of those third parties.</p>
+              <h2>6. Changes to the service</h2>
+              <p>We reserve the right to modify, suspend or discontinue any part of the service at any time without notice.</p>
+              <h2>7. Governing law</h2>
+              <p>These Terms shall be governed by and construed in accordance with applicable local laws.</p>
+              <h2>8. Contact</h2>
+              <p>For questions about these Terms, contact support@yourdomain.com.</p>
+            </div>
+          </b:if>
+
+          <!-- Adsterra: In-Article Ad (only on info pages, never on generators) -->
+          <b:if cond='data:blog.pageName == &quot;About&quot; or data:blog.pageName == &quot;Privacy Policy&quot; or data:blog.pageName == &quot;Terms &amp; Conditions&quot; or data:blog.pageName == &quot;Contact&quot;'>
+            <div class='adsterra-zone' data-slot='inarticle' id='adsterra-inarticle' style='margin-top:30px'><!-- AD:INARTICLE --></div>
+          </b:if>
+
+        </div>
+      </div>
+    </b:if>
+
+    <!-- ========== BLOG POST / ARCHIVE ========== -->
+    <b:if cond='data:blog.pageType == &quot;item&quot; or data:blog.pageType == &quot;archive&quot; or data:blog.pageType == &quot;index&quot;'>
+      <b:if cond='data:blog.pageType != &quot;index&quot;'>
+        <div class='container'>
+          <div class='layout'>
+            <div class='content-main'>
+              <b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
+                <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2'>
+                  <b:includable id='main'>
+                    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+                      <b:loop values='data:posts' var='post'>
+                        <article class='post-single'>
+                          <b:if cond='data:post.featuredImage'>
+                            <div class='feature-img'><img expr:alt='data:post.title' expr:src='data:post.featuredImage'/></div>
+                          </b:if>
+                          <div class='body'>
+                            <div class='crumbs'>
+                              <a expr:href='data:blog.homepageUrl'>Home</a><span class='sep'>/</span>
+                              <b:if cond='data:post.labels'><a expr:href='data:post.labels.first.url'><data:post.labels.first.name/></a><span class='sep'>/</span></b:if>
+                              <span class='cur'><data:post.title/></span>
+                            </div>
+                            <span class='cat'><b:if cond='data:post.labels'><data:post.labels.first.name/><b:else/>Article</b:if></span>
+                            <h1><data:post.title/></h1>
+                            <div class='meta'>
+                              <span>&#9998; <b:if cond='data:post.author.name'><data:post.author.name/><b:else/>InvoicePro</b:if></span>
+                              <span>&#128197; <data:post.date/></span>
+                            </div>
+
+                            <!-- JSON-LD Article -->
+                            <script type='application/ld+json'>
+                            {
+                              "@context":"https://schema.org",
+                              "@type":"Article",
+                              "headline":"<data:post.title/>",
+                              "datePublished":"<data:post.date.iso8601/>",
+                              "dateModified":"<data:post.lastUpdated.iso8601/>",
+                              "author":{"@type":"Person","name":"<b:if cond='data:post.author.name'><data:post.author.name/><b:else/>InvoicePro</b:if>"},
+                              "publisher":{"@type":"Organization","name":"<data:blog.title/>"}
+                            }
+                            </script>
+
+                            <div class='post-content'><data:post.body/></div>
+
+                            <!-- Adsterra: In-Article Ad (in blog posts) -->
+                            <div class='adsterra-zone' data-slot='inarticle' id='adsterra-inarticle'><!-- AD:INARTICLE --></div>
+
+                            <b:if cond='data:post.labels'>
+                              <div class='post-labels'>
+                                <b:loop values='data:post.labels' var='lbl'>
+                                  <a expr:href='data:lbl.url'><data:lbl.name/></a>
+                                </b:loop>
+                              </div>
+                            </b:if>
+
+                            <div class='author-box'>
+                              <div class='av'>iP</div>
+                              <div>
+                                <b><b:if cond='data:post.author.name'><data:post.author.name/><b:else/>InvoicePro Team</b:if></b>
+                                <span>Helping you invoice smarter and get paid faster.</span>
+                              </div>
+                            </div>
+                          </div>
+                        </article>
+                      </b:loop>
+                      <div class='blog-pager'>
+                        <b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl'>&#8592; Newer</a></b:if>
+                        <b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl'>Older &#8594;</a></b:if>
+                      </div>
+                    <b:else/>
+                      <!-- Archive view -->
+                      <div class='crumbs'>
+                        <a expr:href='data:blog.homepageUrl'>Home</a><span class='sep'>/</span><span class='cur'>Articles</span>
+                      </div>
+                      <h1 style='font-size:30px;margin-bottom:20px'><b:if cond='data:blog.searchQuery'>Search: <data:blog.searchQuery/><b:else/>Latest Articles</b:if></h1>
+                      <div class='post-list'>
+                        <b:loop values='data:posts' var='post'>
+                          <article class='post-card'>
+                            <a class='thumb' expr:href='data:post.url'>
+                              <b:if cond='data:post.featuredImage'>
+                                <img expr:alt='data:post.title' expr:src='data:post.featuredImage' loading='lazy'/>
+                              </b:if>
+                            </a>
+                            <div class='body'>
+                              <b:if cond='data:post.labels'><span class='cat'><data:post.labels.first.name/></span></b:if>
+                              <h3><a expr:href='data:post.url'><data:post.title/></a></h3>
+                              <p><data:post.snippet/></p>
+                              <div class='meta'><span><data:post.date/></span><a expr:href='data:post.url'>Read more &#8594;</a></div>
+                            </div>
+                          </article>
+                        </b:loop>
+                      </div>
+                      <div class='blog-pager'>
+                        <b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl'>&#8592; Newer</a></b:if>
+                        <b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl'>Older &#8594;</a></b:if>
+                      </div>
+                    </b:if>
+                  </b:includable>
+                </b:widget>
+              </b:section>
+            </div>
+
+            <!-- SIDEBAR -->
+            <aside class='sidebar'>
+              <b:section class='sidebar-section' id='sidebar' preferred='yes' showaddelement='yes'>
+
+                <b:widget id='HTML1' locked='false' title='Search' type='HTML' version='2'>
+                  <b:widget-settings>
+                    <b:widget-setting name='content'>&lt;div class=&quot;search-box&quot;&gt;&lt;form action=&quot;/search&quot; method=&quot;get&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;q&quot; placeholder=&quot;Search articles...&quot; /&gt;&lt;button type=&quot;submit&quot;&gt;Go&lt;/button&gt;&lt;/form&gt;&lt;/div&gt;</b:widget-setting>
+                  </b:widget-settings>
+                  <b:includable id='main'>
+                    <div class='widget'><h3 class='title'><data:title/></h3><div><data:content/></div></div>
+                  </b:includable>
+                </b:widget>
+
+                <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='2'>
+                  <b:includable id='main'>
+                    <div class='widget'>
+                      <h3 class='title'><data:title/></h3>
+                      <b:loop values='data:posts' var='post'>
+                        <div class='pop-post'>
+                          <a class='pp-thumb' expr:href='data:post.url'>
+                            <b:if cond='data:post.featuredImage'><img expr:alt='data:post.title' expr:src='data:post.featuredImage' loading='lazy'/></b:if>
+                          </a>
+                          <div class='pp-body'>
+                            <h4><a expr:href='data:post.url'><data:post.title/></a></h4>
+                            <span><data:post.date/></span>
+                          </div>
+                        </div>
+                      </b:loop>
+                    </div>
+                  </b:includable>
+                </b:widget>
+
+                <b:widget id='HTML2' locked='false' title='Adsterra Sidebar' type='HTML' version='2'>
+                  <b:widget-settings>
+                    <b:widget-setting name='content'>&lt;div class=&quot;adsterra-zone&quot; data-slot=&quot;sidebar&quot; id=&quot;adsterra-sidebar&quot;&gt;&lt;!-- Paste Adsterra sidebar ad code here --&gt;&lt;/div&gt;</b:widget-setting>
+                  </b:widget-settings>
+                  <b:includable id='main'>
+                    <div class='widget'><h3 class='title'>Sponsored</h3><div class='adsterra-zone' data-slot='sidebar' id='adsterra-sidebar'>&lt;!-- AD:SIDEBAR --&gt;</div></div>
+                  </b:includable>
+                </b:widget>
+
+                <b:widget id='Label1' locked='false' title='Categories' type='Label' version='2'>
+                  <b:includable id='main'>
+                    <div class='widget'>
+                      <h3 class='title'><data:title/></h3>
+                      <ul>
+                        <b:loop values='data:labels' var='label'>
+                          <li><a expr:href='data:label.url'><data:label.name/></a> (<data:label.count/>)</li>
+                        </b:loop>
+                      </ul>
+                    </div>
+                  </b:includable>
+                </b:widget>
+
+                <b:widget id='HTML3' locked='false' title='Follow Us' type='HTML' version='2'>
+                  <b:widget-settings>
+                    <b:widget-setting name='content'>&lt;div class=&quot;social-links&quot;&gt;&lt;a href=&quot;#&quot; aria-label=&quot;Facebook&quot;&gt;f&lt;/a&gt;&lt;a href=&quot;#&quot; aria-label=&quot;Twitter&quot;&gt;X&lt;/a&gt;&lt;a href=&quot;#&quot; aria-label=&quot;LinkedIn&quot;&gt;in&lt;/a&gt;&lt;a href=&quot;#&quot; aria-label=&quot;YouTube&quot;&gt;Y&lt;/a&gt;&lt;/div&gt;</b:widget-setting>
+                  </b:widget-settings>
+                  <b:includable id='main'>
+                    <div class='widget'><h3 class='title'><data:title/></h3><div><data:content/></div></div>
+                  </b:includable>
+                </b:widget>
+
+              </b:section>
+            </aside>
+          </div>
+        </div>
+      </b:if>
+    </b:if>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class='site-footer'>
+    <div class='container'>
+      <!-- Adsterra: Footer Banner -->
+      <div class='adsterra-zone' data-slot='footer' id='adsterra-footer' style='background:rgba(255,255,255,.04);border-radius:16px;padding:24px;margin-bottom:36px'><!-- AD:FOOTER --></div>
+
+      <div class='footer-grid'>
+        <div class='footer-brand'>
+          <a class='brand' expr:href='data:blog.homepageUrl' style='color:#fff'><span class='logo'>iP</span> Invoice<span style='color:#60A5FA'>Pro</span></a>
+          <p>The free, private and beautiful way to create professional invoices and receipts online. No sign-up, no watermark, no limits.</p>
+          <div class='social-links'>
+            <a aria-label='Facebook' href='#' style='background:rgba(255,255,255,.08);color:#fff'>f</a>
+            <a aria-label='Twitter' href='#' style='background:rgba(255,255,255,.08);color:#fff'>X</a>
+            <a aria-label='LinkedIn' href='#' style='background:rgba(255,255,255,.08);color:#fff'>in</a>
+            <a aria-label='YouTube' href='#' style='background:rgba(255,255,255,.08);color:#fff'>Y</a>
+          </div>
+        </div>
+        <div class='footer-col'>
+          <h4>Tools</h4>
+          <ul>
+            <li><a expr:href='data:blog.homepageUrl + &quot;p/invoice-generator.html&quot;'>Invoice Generator</a></li>
+            <li><a expr:href='data:blog.homepageUrl + &quot;p/receipt-generator.html&quot;'>Receipt Generator</a></li>
+            <li><a expr:href='data:blog.homepageUrl'>Features</a></li>
+            <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Tips&quot;'>Invoicing Tips</a></li>
+          </ul>
+        </div>
+        <div class='footer-col'>
+          <h4>Company</h4>
+          <ul>
+            <li><a expr:href='data:blog.homepageUrl + &quot;p/about.html&quot;'>About</a></li>
+            <li><a expr:href='data:blog.homepageUrl + &quot;p/contact.html&quot;'>Contact</a></li>
+            <li><a expr:href='data:blog.homepageUrl + &quot;p/privacy-policy.html&quot;'>Privacy Policy</a></li>
+            <li><a expr:href='data:blog.homepageUrl + &quot;p/terms.html&quot;'>Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div class='footer-col footer-contact'>
+          <h4>Contact</h4>
+          <div class='item'>&#9993; support@yourdomain.com</div>
+          <div class='item'>&#128222; +1 (000) 000-0000</div>
+          <div class='item'>&#128205; 123 Business Ave, NY, USA</div>
+        </div>
+      </div>
+      <div class='footer-bottom'>
+        <span>&#169; <script>document.write(new Date().getFullYear())</script> InvoicePro. All rights reserved.</span>
+        <span>Made for NextCubeTech &#8226; Powered by Blogger</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Adsterra: Social Bar (fixed) -->
+  <div class='adsterra-zone' data-slot='socialbar' id='adsterra-socialbar'><!-- AD:SOCIALBAR --></div>
+
+  <!-- Native Ad Area (rendered as overlay when populated via Ad Settings) -->
+  <div class='adsterra-zone' data-slot='native' id='adsterra-native' style='display:none'><!-- AD:NATIVE --></div>
+
+  <!-- ===== AD SETTINGS PANEL ===== -->
+  <div aria-hidden='true' id='adSettingsBackdrop' style='position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);z-index:9998;opacity:0;pointer-events:none;transition:opacity .25s'></div>
+  <aside aria-label='Ad Settings' aria-hidden='true' id='adSettingsPanel' style='position:fixed;top:0;right:0;height:100vh;width:min(420px,92vw);background:var(--card);border-left:1px solid var(--border);box-shadow:var(--shadow-lg);z-index:9999;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column'>
+    <div style='padding:22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center'>
+      <div>
+        <b style='font-family:Plus Jakarta Sans;font-size:18px'>Ad Settings</b>
+        <div style='font-size:12px;color:var(--muted)'>Paste your Adsterra ad codes below</div>
+      </div>
+      <button class='theme-toggle' id='adSettingsClose' style='width:38px;height:38px' type='button'>&#215;</button>
+    </div>
+    <div style='flex:1;overflow-y:auto;padding:22px' id='adSettingsBody'>
+      <div style='font-size:13px;color:var(--muted);background:rgba(6,182,212,.08);padding:12px;border-radius:10px;margin-bottom:18px'>&#9432; Codes are stored only in your browser (localStorage). They never appear inside invoice or receipt forms.</div>
+      <div id='adFields'></div>
+      <div style='display:flex;gap:10px;margin-top:20px'>
+        <button class='btn btn-primary btn-block' id='adSave' type='button'>Save Ads</button>
+        <button class='btn btn-ghost' id='adClear' type='button'>Clear</button>
+      </div>
+    </div>
+  </aside>
+  <button aria-label='Ad settings' id='adSettingsOpen' style='position:fixed;left:16px;bottom:16px;z-index:800;background:var(--card);border:1px solid var(--border);width:46px;height:46px;border-radius:50%;cursor:pointer;box-shadow:var(--shadow);color:var(--text);font-size:18px' title='Ad Settings' type='button'>&#9881;</button>
+
+  <!-- Toast -->
+  <div class='toast' id='toast'></div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>//<![CDATA[
+  (function(){
+    'use strict';
+
+    /* ---------- Theme toggle ---------- */
+    var root=document.documentElement;
+    var saved=localStorage.getItem('ip-theme');
+    if(saved){root.setAttribute('data-theme',saved);}
+    else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){root.setAttribute('data-theme','dark');}
+    var tt=document.getElementById('themeToggle');
+    if(tt){
+      tt.addEventListener('click',function(){
+        var cur=root.getAttribute('data-theme')==='dark'?'light':'dark';
+        root.setAttribute('data-theme',cur);
+        localStorage.setItem('ip-theme',cur);
+      });
+    }
+
+    /* ---------- Mobile nav ---------- */
+    var mt=document.getElementById('menuToggle'),nm=document.getElementById('navMobile');
+    if(mt&&nm){
+      mt.addEventListener('click',function(){document.body.classList.toggle('nav-open');});
+      nm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('nav-open');});});
+    }
+
+    /* ---------- Toast ---------- */
+    var toastEl=document.getElementById('toast'),toastT;
+    window.ipToast=function(msg){
+      if(!toastEl)return;
+      toastEl.textContent=msg;toastEl.classList.add('show');
+      clearTimeout(toastT);toastT=setTimeout(function(){toastEl.classList.remove('show');},2600);
+    };
+
+    /* ---------- FAQ ---------- */
+    document.querySelectorAll('.faq-q').forEach(function(q){
+      q.addEventListener('click',function(){
+        var item=q.parentNode,a=q.nextElementSibling,open=item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});
+        if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+      });
+    });
+
+    /* ---------- Utilities ---------- */
+    function money(n,cur){
+      var v=parseFloat(n||0);
+      if(isNaN(v))v=0;
+      return (cur||'$')+v.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+    }
+    function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+    function el(id){return document.getElementById(id);}
+    function fmtDate(v){
+      if(!v)return '';
+      var d=new Date(v);
+      if(isNaN(d))return v;
+      return d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+    }
+
+    /* ---------- INVOICE GENERATOR ---------- */
+    var invForm=el('invItems');
+    if(invForm){
+      var cur=el('invCurrency');
+      function invRows(){
+        return Array.prototype.slice.call(document.querySelectorAll('#invItemsBody tr'));
+      }
+      function invRecalc(){
+        var rows=invRows(),sub=0;
+        rows.forEach(function(r){
+          var q=parseFloat(r.querySelector('.i-qty').value)||0;
+          var p=parseFloat(r.querySelector('.i-price').value)||0;
+          var line=q*p;r.querySelector('.i-total').textContent=money(line,cur.value);sub+=line;
+        });
+        var taxP=parseFloat(el('invTax').value)||0,discP=parseFloat(el('invDisc').value)||0;
+        var disc=sub*discP/100,tax=(sub-disc)*taxP/100,total=sub-disc+tax;
+        var c=cur.value;
+        document.querySelector('.inv-subtotal').textContent=money(sub,c);
+        document.querySelector('.inv-tax').textContent=money(tax,c);
+        document.querySelector('.inv-disc').textContent='-'+money(disc,c);
+        document.querySelector('.inv-total').textContent=money(total,c);
+        invRender();
+      }
+      function invRender(){
+        var c=cur.value;
+        el('pBrand').innerHTML=esc(el('invCoName').value)+'';
+        el('pCoName').textContent=el('invCoName').value;
+        el('pCoAddr').textContent=el('invCoAddr').value;
+        el('pInvNo').textContent=el('invNo').value;
+        el('pDue').textContent=fmtDate(el('invDue').value);
+        el('pClient').textContent=el('invClient').value;
+        el('pClientAddr').textContent=el('invClientAddr').value;
+        var body=el('pItems');body.innerHTML='';
+        var sub=0;
+        invRows().forEach(function(r){
+          var d=r.querySelector('.i-desc').value||'';
+          var q=parseFloat(r.querySelector('.i-qty').value)||0;
+          var p=parseFloat(r.querySelector('.i-price').value)||0;
+          var line=q*p;sub+=line;
+          if(!d&&!q&&!p)return;
+          var tr=document.createElement('tr');
+          tr.innerHTML='<td>'+esc(d)+'</td><td>'+q+'</td><td>'+money(p,c)+'</td><td>'+money(line,c)+'</td>';
+          body.appendChild(tr);
+        });
+        var taxP=parseFloat(el('invTax').value)||0,discP=parseFloat(el('invDisc').value)||0;
+        var disc=sub*discP/100,tax=(sub-disc)*taxP/100,total=sub-disc+tax;
+        var ht='';
+        ht+='<div class="trow"><span>Subtotal</span><b>'+money(sub,c)+'</b></div>';
+        if(disc>0)ht+='<div class="trow"><span>Discount ('+discP+'%)</span><b>-'+money(disc,c)+'</b></div>';
+        if(tax>0)ht+='<div class="trow"><span>Tax ('+taxP+'%)</span><b>'+money(tax,c)+'</b></div>';
+        ht+='<div class="grand"><span>Total Due</span><span class="amt">'+money(total,c)+'</span></div>';
+        el('pTotals').innerHTML=ht;
+      }
+      el('invItemsBody').addEventListener('input',invRecalc);
+      el('invItemsBody').addEventListener('click',function(e){
+        if(e.target.classList.contains('del-row')){
+          if(invRows().length>1){e.target.closest('tr').remove();invRecalc();}
+        }
+      });
+      el('invAddItem').addEventListener('click',function(){
+        var tr=document.createElement('tr');
+        tr.innerHTML='<td><input class="i-desc" type="text" placeholder="Item description"/></td><td class="col-qty"><input class="i-qty" type="number" value="1"/></td><td class="col-price"><input class="i-price" type="number" value="0"/></td><td class="i-total">0</td><td><button class="del-row" type="button">&#215;</button></td>';
+        el('invItemsBody').appendChild(tr);invRecalc();
+      });
+      ['invCoName','invCoAddr','invClient','invClientAddr','invNo','invDue','invTax','invDisc','invCurrency'].forEach(function(id){
+        var e=el(id);if(e)e.addEventListener('input',invRecalc);
+      });
+      el('invPrint').addEventListener('click',function(){window.print();});
+      el('invShare').addEventListener('click',function(){
+        var data={t:'inv',co:el('invCoName').value,addr:el('invCoAddr').value,cl:el('invClient').value,cla:el('invClientAddr').value,no:el('invNo').value,due:el('invDue').value,c:cur.value,tax:el('invTax').value,disc:el('invDisc').value,items:invRows().map(function(r){return[r.querySelector('.i-desc').value,r.querySelector('.i-qty').value,r.querySelector('.i-price').value];})};
+        try{
+          var u=location.origin+location.pathname+'#d='+btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+          if(navigator.share){navigator.share({title:'Invoice '+data.no,url:u}).catch(function(){});}
+          else{navigator.clipboard.writeText(u).then(function(){ipToast('Share link copied!');},function(){prompt('Copy this link:',u);});}
+        }catch(err){ipToast('Sharing not supported');}
+      });
+      el('invPdf').addEventListener('click',function(){ipPrintPDF('Invoice_'+(el('invNo').value||'document'),'invPreview');});
+      invRecalc();
+    }
+
+    /* ---------- RECEIPT GENERATOR ---------- */
+    var rcPreview=el('rcPreview');
+    if(rcPreview){
+      var rcur=el('rcCurrency');
+      function rcRecalc(){
+        var c=rcur.value;
+        el('rpCoName').textContent=el('rcCoName').value;
+        el('rpCoAddr').textContent=el('rcCoAddr').value;
+        el('rpNo').textContent=el('rcNo').value;
+        el('rpDate').textContent=fmtDate(el('rcDate').value);
+        el('rpFrom').textContent=el('rcFrom').value;
+        el('rpFor').textContent=el('rcFor').value;
+        el('rpMethod').textContent=el('rcMethod').value;
+        el('rpTxn').textContent=el('rcTxn').value||'\u2014';
+        var st=el('rcStatus').value;
+        el('rpStatus').textContent=st.charAt(0).toUpperCase()+st.slice(1);
+        var pill=el('rpStatusPill');
+        pill.className='status-pill '+st;pill.textContent=st.toUpperCase();
+        var amt=parseFloat(el('rcAmount').value)||0;
+        el('rpAmount').textContent=money(amt,c);
+        el('rpTotal').textContent=money(amt,c);
+      }
+      ['rcCoName','rcCoAddr','rcNo','rcDate','rcFrom','rcFor','rcAmount','rcMethod','rcStatus','rcTxn','rcCurrency'].forEach(function(id){
+        var e=el(id);if(e)e.addEventListener('input',rcRecalc);
+      });
+      el('rcPrint').addEventListener('click',function(){window.print();});
+      el('rcPdf').addEventListener('click',function(){ipPrintPDF('Receipt_'+(el('rcNo').value||'document'),'rcPreview');});
+      rcRecalc();
+    }
+
+    /* ---------- PDF via print (print-to-PDF) ---------- */
+    function ipPrintPDF(name,srcId){
+      var src=el(srcId);if(!src)return;
+      var w=window.open('','_blank','width=820,height=1000');
+      if(!w){ipToast('Allow pop-ups to export PDF');return;}
+      var css='*{box-sizing:border-box}body{font-family:Inter,Arial,sans-serif;color:#1E293B;margin:0;padding:40px}.doc{background:#fff;padding:0}.doc-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #2563EB;padding-bottom:22px;margin-bottom:26px}.doc-brand{font-family:Plus Jakarta Sans,Arial,sans-serif;font-weight:800;font-size:26px}.doc-brand span{color:#2563EB}.doc-type{font-size:32px;font-weight:800;color:#2563EB;font-family:Plus Jakarta Sans,Arial,sans-serif}.doc-meta{text-align:right;color:#64748B;font-size:13px;line-height:1.7}.doc-meta b{color:#1E293B}.parties{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}.party .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#94A3B8;font-weight:700;margin-bottom:4px}.party .nm{font-weight:700;font-size:16px;margin-bottom:3px}.party .det{font-size:13px;color:#64748B;line-height:1.6;white-space:pre-line}table.doc-items{width:100%;border-collapse:collapse;margin:14px 0}table.doc-items th{background:#1E293B;color:#fff;text-align:left;padding:12px 14px;font-size:12px;text-transform:uppercase}table.doc-items th:last-child,table.doc-items td:last-child{text-align:right}table.doc-items td{padding:12px 14px;border-bottom:1px solid #E2E8F0;font-size:14px}.doc-totals{margin-left:auto;width:280px;margin-top:18px}.doc-totals .trow{display:flex;justify-content:space-between;padding:7px 0;font-size:14px;color:#64748B}.doc-totals .trow b{color:#1E293B}.doc-totals .grand{border-top:2px solid #1E293B;margin-top:6px;padding-top:12px;font-size:20px;font-weight:800;color:#1E293B;font-family:Plus Jakarta Sans,Arial,sans-serif}.doc-totals .grand .amt{color:#2563EB}.doc-foot{margin-top:36px;padding-top:20px;border-top:1px solid #E2E8F0;font-size:12px;color:#94A3B8;text-align:center}.status-pill{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase}.status-pill.paid{background:#DCFCE7;color:#166534}.status-pill.unpaid{background:#FEE2E2;color:#991B1B}.status-pill.partial{background:#FEF3C7;color:#92400E}';
+      w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>'+esc(name)+'</title><style>'+css+'</style></head><body>'+src.outerHTML+'</body></html>');
+      w.document.close();w.focus();
+      setTimeout(function(){w.print();},350);
+    }
+
+    /* ---------- Contact form ---------- */
+    var cf=el('contactForm');
+    if(cf){cf.addEventListener('submit',function(e){e.preventDefault();cf.reset();ipToast('Thanks! Your message has been recorded.');});}
+
+    /* ---------- Set today's date in date inputs ---------- */
+    var today=new Date().toISOString().split('T')[0];
+    ['invDue','rcDate'].forEach(function(id){var e=el(id);if(e&&!e.value)e.value=today;});
+    if(el('invDue')&&invForm)invRecalc&&invRecalc();
+    if(el('rcDate')&&rcPreview)rcRecalc&&rcRecalc();
+
+    /* ---------- PWA: Service Worker ---------- */
+    if('serviceWorker' in navigator){
+      window.addEventListener('load',function(){
+        navigator.serviceWorker.register('/sw.js').catch(function(){});
+      });
+    }
+
+    /* ---------- PWA: Install prompt ---------- */
+    var deferredPrompt,installBtn=el('installAppBtn');
+    window.addEventListener('beforeinstallprompt',function(e){
+      e.preventDefault();deferredPrompt=e;
+      if(installBtn)installBtn.classList.add('show');
+    });
+    if(installBtn){
+      installBtn.addEventListener('click',function(){
+        if(!deferredPrompt){ipToast('Install from your browser menu');return;}
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(function(){deferredPrompt=null;installBtn.classList.remove('show');});
+      });
+    }
+    window.addEventListener('appinstalled',function(){if(installBtn)installBtn.classList.remove('show');});
+
+    /* ---------- AD SETTINGS PANEL ---------- */
+    var AD_SLOTS=[
+      {id:'header',name:'Header Banner',sel:'#adsterra-header'},
+      {id:'home-banner',name:'Homepage Banner',sel:'#adsterra-home-banner'},
+      {id:'sidebar',name:'Sidebar Banner',sel:'#adsterra-sidebar'},
+      {id:'inarticle',name:'In-Article Ad',sel:'#adsterra-inarticle'},
+      {id:'footer',name:'Footer Banner',sel:'#adsterra-footer'},
+      {id:'native',name:'Native Ad Area',sel:'#adsterra-native'},
+      {id:'socialbar',name:'Social Bar',sel:'#adsterra-socialbar'}
+    ];
+    var panel=el('adSettingsPanel'),back=el('adSettingsBackdrop'),openB=el('adSettingsOpen'),closeB=el('adSettingsClose'),fields=el('adFields');
+    function openPanel(){panel.style.transform='translateX(0)';panel.setAttribute('aria-hidden','false');back.style.opacity='1';back.style.pointerEvents='auto';}
+    function closePanel(){panel.style.transform='translateX(100%)';panel.setAttribute('aria-hidden','true');back.style.opacity='0';back.style.pointerEvents='none';}
+    if(openB)openB.addEventListener('click',openPanel);
+    if(closeB)closeB.addEventListener('click',closePanel);
+    if(back)back.addEventListener('click',closePanel);
+    function buildAdFields(){
+      var store=getAdStore();fields.innerHTML='';
+      AD_SLOTS.forEach(function(s){
+        var wrap=document.createElement('div');wrap.style.cssText='margin-bottom:14px';
+        var lbl=document.createElement('label');lbl.textContent=s.name;lbl.style.cssText='display:block;font-weight:600;font-size:13px;margin-bottom:5px';
+        var ta=document.createElement('textarea');ta.rows=3;ta.dataset.slot=s.id;ta.placeholder='Paste '+s.name+' Adsterra code...';
+        ta.style.cssText='width:100%;padding:10px;border:1.5px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);font-family:JetBrains Mono,monospace;font-size:12px';
+        ta.value=store[s.id]||'';wrap.appendChild(lbl);wrap.appendChild(ta);fields.appendChild(wrap);
+      });
+    }
+    function getAdStore(){try{return JSON.parse(localStorage.getItem('ip-ads')||'{}');}catch(e){return{};}}
+    function applyAds(){
+      var store=getAdStore();
+      AD_SLOTS.forEach(function(s){
+        var nodes=document.querySelectorAll('.adsterra-zone[data-slot="'+s.id+'"]');
+        nodes.forEach(function(node){
+          var code=(store[s.id]||'').trim();
+          if(code){node.innerHTML=code;node.setAttribute('data-empty','false');node.style.display='';}
+          else{node.setAttribute('data-empty','true');}
+        });
+      });
+    }
+    if(el('adSave'))el('adSave').addEventListener('click',function(){
+      var store={};fields.querySelectorAll('textarea').forEach(function(ta){if(ta.value.trim())store[ta.dataset.slot]=ta.value.trim();});
+      localStorage.setItem('ip-ads',JSON.stringify(store));applyAds();closePanel();ipToast('Ad settings saved');
+    });
+    if(el('adClear'))el('adClear').addEventListener('click',function(){
+      localStorage.removeItem('ip-ads');buildAdFields();applyAds();ipToast('Ad settings cleared');
+    });
+    buildAdFields();applyAds();
+
+    /* ---------- Lazy load images ---------- */
+    if('loading' in HTMLImageElement.prototype){}else{
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var im=e.target;im.src=im.dataset.src;io.unobserve(im);}});});
+      document.querySelectorAll('img[data-src]').forEach(function(im){io.observe(im);});
+    }
+  })();
+  //]]></script>
+
+</body>
+</html>
